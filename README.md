@@ -3,7 +3,7 @@
 
 A beautiful, responsive, and privacy-focused habit tracker designed to help you stay consistent. Unlike other trackers, this one requires **no account** and **no database**. It uses your browser's local storage to keep your data safe and private on your own device.
 
-![App Preview](images/image_e19ce6.png)
+![App Preview](images/1.png)
 
 
 ## 🚀 Live Link
