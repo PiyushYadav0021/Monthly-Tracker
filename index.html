@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yearly Growth Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="title-block">
+            <h1>
+                Growth Tracker
+                <span id="saveStatus">Saved ✓</span>
+            </h1>
+            <p>SMALL HABITS. BIG CHANGE.</p>
+        </div>
+        
+        <div class="meta-inputs">
+            <div class="input-group">
+                <label>SELECT MONTH</label>
+                <div class="month-nav">
+                    <button id="prevMonth" class="nav-btn">←</button>
+                    <select id="monthSelector"></select>
+                    <button id="nextMonth" class="nav-btn">→</button>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>YOUR NAME</label>
+                <input type="text" id="nameInput" placeholder="Enter Name">
+            </div>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <span>Completion Rate: <strong id="progressText">0%</strong></span>
+        <div class="progress-container">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+    </div>
+
+    <div class="tracker-wrapper">
+        <table id="trackerTable">
+            <thead>
+                <tr id="headerRow">
+                    <th>HABITS / DAYS</th>
+                    </tr>
+            </thead>
+            <tbody id="habitBody">
+                </tbody>
+            <tbody>
+                <tr><td colspan="32" class="section-header">SLEEP TRACKER</td></tr>
+            </tbody>
+            <tbody id="sleepBody">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="notes-section">
+        <h3>NOTES & REFLECTIONS</h3>
+        <textarea id="notesInput" placeholder="Reflections for this month..."></textarea>
+    </div>
+
+    <div class="controls">
+        <button class="btn-reset" onclick="resetCurrentMonth()">Clear This Month</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

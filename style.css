@@ -1,0 +1,325 @@
+:root {
+    --primary: #2563eb;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --success: #10b981;
+    --sleep-color: #8b5cf6;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 20px;
+    /* Prevent horizontal scroll on the body itself */
+    overflow-x: hidden; 
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: var(--surface);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Header Section --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+    flex-wrap: wrap; /* Allows wrapping on small screens */
+    gap: 20px;
+}
+
+.title-block {
+    flex: 1;
+    min-width: 280px;
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#saveStatus {
+    font-size: 0.9rem;
+    color: var(--success);
+    margin-left: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.meta-inputs {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.input-group input, .input-group select {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: white;
+    min-width: 120px;
+}
+
+.month-nav {
+    display: flex;
+    gap: 5px;
+}
+
+.nav-btn {
+    padding: 8px 12px;
+    background: #eef2ff;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    border-radius: 6px;
+}
+.nav-btn:hover { background: #dbeafe; }
+
+/* --- Progress Bar --- */
+.stats-bar {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.progress-container {
+    background: #e2e8f0;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--success));
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+/* --- The Grid (The Complex Part) --- */
+.tracker-wrapper {
+    /* This creates the scrolling window */
+    overflow-x: auto; 
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    position: relative;
+    /* Smooth scrolling on mobile */
+    -webkit-overflow-scrolling: touch; 
+    margin-bottom: 30px;
+    background: white;
+}
+
+table {
+    border-collapse: separate; /* Required for sticky to work well with borders */
+    border-spacing: 0;
+    width: max-content; /* Table grows as wide as needed */
+}
+
+th, td {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 8px;
+    text-align: center;
+    /* Min width ensures checkboxes are easy to hit */
+    min-width: 35px; 
+}
+
+/* Header Row Sticky Top */
+thead th {
+    background-color: #f1f5f9;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-top: none;
+}
+
+/* First Column (Habit Names) Sticky Left */
+td:first-child, th:first-child {
+    position: sticky;
+    left: 0;
+    background-color: var(--surface);
+    z-index: 20; /* Higher than header so it sits on top when scrolling diagonal */
+    width: 220px;
+    min-width: 160px; /* Reduced slightly for mobile */
+    max-width: 220px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    text-align: left;
+    border-left: none;
+}
+
+/* The intersection of Top Header and Left Column needs highest Z-index */
+thead th:first-child {
+    z-index: 30;
+}
+
+.habit-input {
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    outline: none;
+    background: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.habit-input:focus {
+    background: #f0f9ff;
+    border-bottom: 2px solid var(--primary);
+}
+
+.day-check {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--success);
+    margin: 0; /* Align center */
+}
+
+.section-header {
+    background-color: #eef2ff;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 15px;
+    color: var(--primary);
+    position: sticky;
+    left: 0;
+}
+
+.sleep-row td:first-child {
+    font-weight: bold;
+    color: var(--sleep-color);
+    padding-left: 15px;
+}
+
+.sleep-check { accent-color: var(--sleep-color); }
+
+.notes-section { margin-top: 30px; }
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-reset {
+    padding: 10px 20px;
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-reset:hover { background-color: #dc2626; }
+
+/* --- MOBILE SPECIFIC STYLES --- */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .meta-inputs {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .input-group input, .input-group select, .month-nav {
+        width: 100%;
+    }
+    
+    .month-nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #monthSelector {
+        flex-grow: 1;
+        margin: 0 5px;
+    }
+
+    /* Shrink the sticky column slightly on mobile to show more checkboxes */
+    td:first-child, th:first-child {
+        width: 140px;
+        min-width: 140px;
+        font-size: 0.9rem;
+    }
+
+    /* Make checkboxes larger on mobile for easier tapping */
+    .day-check {
+        width: 22px;
+        height: 22px;
+    }
+    
+    th, td {
+        min-width: 40px; /* Wider hit area for fingers */
+    }
+
+    .title-block h1 {
+        font-size: 1.5rem;
+    }
+}
