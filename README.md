@@ -7,7 +7,7 @@ A beautiful, responsive, and privacy-focused habit tracker designed to help you 
 
 
 ## 🚀 Live Link
-**[Try the Tracker Here](YOUR_VERCEL_URL_HERE)**
+**[Try the Tracker Here](https://habitrackers.vercel.app/)**
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-active-success.svg)
