@@ -35,6 +35,23 @@ I want to make this the best habit tracker on GitHub! I am looking for contribut
 * **🎨 Custom Themes:** Adding color options for the progress bar.
 * **📈 Weekly Stats:** Calculating weekly streaks.
 
+## 📂 Project Structure
+
+```bash
+├── index.html    # The skeleton and layout
+├── style.css     # Responsive styling and design system
+└── script.js     # Logic for saving, loading, and month switching
+
+**How to contribute:**
+1. Fork the project.
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
 
 ---
 *Created by Piyush Yadav*
