@@ -1,5 +1,5 @@
-# 🌱 Minimalist Yearly Growth Tracker
-# 🌱 Growth Tracker: Small Habits, Big Change
+# 🌱 Minimalist Yearly Growth(Habit) Tracker
+# 🌱 Habit Tracker: Small Habits, Big Change
 
 A beautiful, responsive, and privacy-focused habit tracker designed to help you stay consistent. Unlike other trackers, this one requires **no account** and **no database**. It uses your browser's local storage to keep your data safe and private on your own device.
 
